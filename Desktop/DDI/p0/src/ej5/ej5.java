@@ -10,7 +10,7 @@ public class ej5 {
 		return fact;
 	}
 	public static void main(String[] args) {
-		int fact=5;
+		int fact=4;
 		System.out.println(factorial(fact));
 	}
 
