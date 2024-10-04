@@ -1,7 +1,7 @@
 package ProyectoRaul;
 
-public abstract class Vehiculo {
-	
+public abstract class Vehiculo implements Comparable<Vehiculo> {
+
 	public String marca;
 	public String color;
 	public String nBastidor;
@@ -10,16 +10,17 @@ public abstract class Vehiculo {
 	protected double velocidadMax;
 
 //Clase abstracta porque no quiero crear objetos de Vehículo sino de las clases hijas
-	public Vehiculo(String marca, String color, String nBastidor, int kilometros, int anoFabricacion, double velocidadMax) {
+	public Vehiculo(String marca, String color, String nBastidor, int kilometros, int anoFabricacion,
+			double velocidadMax) {
 		super();
 		this.marca = marca;
 		this.color = color;
 		this.nBastidor = nBastidor;
 		this.kilometros = kilometros;
 		this.anoFabricacion = anoFabricacion;
-		this.velocidadMax=velocidadMax;
+		this.velocidadMax = velocidadMax;
 	}
-	
+
 	public Vehiculo(String marca, String color, String nBastidor, int kilometros) {
 		super();
 		this.marca = marca;
@@ -60,6 +61,7 @@ public abstract class Vehiculo {
 	public void setKilometros(int kilometros) {
 		this.kilometros = kilometros;
 	}
+
 	public double getVelocidadMax() {
 		return velocidadMax;
 	}
@@ -82,5 +84,14 @@ public abstract class Vehiculo {
 				+ kilometros + ", anoFabricacion=" + anoFabricacion + "]";
 	}
 
-	
+	@Override
+	public int compareTo(Vehiculo v) {
+		if (velocidadMax > v.getVelocidadMax())
+			return 1;
+		if (velocidadMax < v.getVelocidadMax())
+			return -1;
+
+		return 0;
+	}
+
 }

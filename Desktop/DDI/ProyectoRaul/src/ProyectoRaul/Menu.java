@@ -2,7 +2,6 @@ package ProyectoRaul;
 
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.Collection;
 
 public class Menu {
 
@@ -12,8 +11,11 @@ public class Menu {
 		String nBastidor;
 		int kilometros;
 		double vMax;
-		boolean electrico;
-		boolean antiguo;
+		char electrico;
+		char antiguo;
+		boolean electricob=false;
+		boolean antiguob=false;
+		sc.nextLine();
 		System.out.println("Introduce la marca del coche");
 		marca = sc.nextLine();
 		System.out.println("Introduce el color");
@@ -25,10 +27,18 @@ public class Menu {
 		System.out.println("Indica su velocidad máxima");
 		vMax = sc.nextDouble();
 		System.out.println("Indica si es o no eléctrico");
-		electrico = sc.nextBoolean();
+		System.out.println("Si: s");
+		System.out.println("No: n");
+		electrico = sc.next().charAt(0);
+		if(electrico=='s')
+			electricob=true;
 		System.out.println("Indica si es o no antigüo");
-		antiguo = sc.nextBoolean();
-		Coche coche = new Coche(marca, color, nBastidor, kilometros, vMax, electrico, antiguo);
+		System.out.println("Si: s");
+		System.out.println("No: n");
+		antiguo = sc.next().charAt(0);
+		if(antiguo=='s')
+			antiguob=true;
+		Coche coche = new Coche(marca, color, nBastidor, kilometros, vMax, electricob, antiguob);
 		return coche;
 	}
 
@@ -41,9 +51,9 @@ public class Menu {
 		int eslora;
 		int calado;
 		String tipo;
-		
-		System.out.println("Introduce la marca del coche");
-		marca = sc.nextLine();
+
+		sc.nextLine();
+		System.out.println("Introduce la marca del barco");
 		marca = sc.nextLine();
 		System.out.println("Introduce el color");
 		color = sc.nextLine();
@@ -70,8 +80,10 @@ public class Menu {
 		double vMax;
 		byte motores;
 		double velocidadMax;
-		boolean combate;
-		System.out.println("Introduce la marca del coche");
+		char combate;
+		boolean combateb;
+		sc.nextLine();
+		System.out.println("Introduce la marca del avión");
 		marca = sc.nextLine();
 		System.out.println("Introduce el color");
 		color = sc.nextLine();
@@ -86,8 +98,14 @@ public class Menu {
 		System.out.println("Indica su velocidad máxima");
 		velocidadMax = sc.nextDouble();
 		System.out.println("Indica si se trata o no de un avión de combate");
-		combate = sc.nextBoolean();
-		Avion avion = new Avion(marca, color, nBastidor, kilometros, motores, velocidadMax, combate);
+		System.out.println("Si: s");
+		System.out.println("No: n");
+		combate = sc.next().charAt(0);
+		if (combate=='s')
+			combateb=true;
+		else
+			combateb=false;
+		Avion avion = new Avion(marca, color, nBastidor, kilometros, motores, vMax, combateb);
 		return avion;
 	}
 
@@ -115,34 +133,44 @@ public class Menu {
 
 	public static void main(String[] args) {
 		int vehiculo;
-		double rapido=0;
+		double rapido = 0;
 		ArrayList<Coche> listaCoches = new ArrayList<Coche>();
 		ArrayList<Barco> listaBarcos = new ArrayList<Barco>();
 		ArrayList<Avion> listaAviones = new ArrayList<Avion>();
-		ArrayList<ArrayList> listaVehiculos = new ArrayList<ArrayList>();
-		listaVehiculos.add(listaCoches);
-		listaVehiculos.add(listaBarcos);
-		listaVehiculos.add(listaAviones);
-		System.out.println("Introduce el tipo de vehículo que quieres registrar");
-		System.out.println("1. Coche");
-		System.out.println("2. Barco");
-		System.out.println("3. Avión");
-		vehiculo = sc.nextInt();
-		/*if (vehiculo==1) 
-			listaCoches.add(crearCoche());
-		
-		else if (vehiculo==2) 
-			listaBarcos.add(crearBarco());
-		
-		else 
-			listaAviones.add(crearAvion());
-		*/
+		ArrayList<Vehiculo> listaVehiculos = new ArrayList<Vehiculo>();
+
+		do {
+			System.out.println("Introduce el tipo de vehículo que quieres registrar");
+			System.out.println("1. Coche");
+			System.out.println("2. Barco");
+			System.out.println("3. Avión");
+			System.out.println("4. Salir");
+			vehiculo = sc.nextInt();
+
+			if (vehiculo == 1)
+				listaCoches.add(crearCoche());
+
+			else if (vehiculo == 2)
+				listaBarcos.add(crearBarco());
+
+			else if (vehiculo==3)
+				listaAviones.add(crearAvion());
+			
+			
+		} while (vehiculo != 4);
+		listaVehiculos.addAll(listaCoches);
+		listaVehiculos.addAll(listaBarcos);
+		listaVehiculos.addAll(listaAviones);
+		listaVehiculos.sort(null);
+
 		for (int i = 0; i < listaVehiculos.size(); i++) {
-			for(int j = 0; j < listaVehiculos.size(); j++) {
-				System.out.println(listaVehiculos.get(j).sort(velocidadMax));
-			}
+			if (i == listaVehiculos.size()-1)
+				System.out.println(listaVehiculos.get(i).getnBastidor()
+						+ " es el número de bastidor del vehículo más rápido, que es un "
+						+ listaVehiculos.get(i).getClass().getCanonicalName() + " con una velocidad de: "
+						+ listaVehiculos.get(i).getVelocidadMax() + "km/h");
 		}
-		
+
 		for (int j = 0; j < listaCoches.size(); j++) {
 			if (listaCoches.get(j).electrico == true) {
 				System.out.println(listaCoches.get(j).getMarca() + " es eléctrico");
@@ -150,4 +178,3 @@ public class Menu {
 		}
 	}
 }
-

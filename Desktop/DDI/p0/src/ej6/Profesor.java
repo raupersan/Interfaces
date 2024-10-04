@@ -8,6 +8,10 @@ public class Profesor extends Persona {
 			this.nAsignaturas = nAsignaturas;
 			this.tutor = tutor;
 		}
+		public Profesor(String nombre) {
+			super(nombre);
+			this.nombre=nombre;
+		}
 		public int getnAsignaturas() {
 			return nAsignaturas;
 		}
@@ -20,5 +24,7 @@ public class Profesor extends Persona {
 		public void setTutor(boolean tutor) {
 			this.tutor = tutor;
 		}
-	
+	public int wait(int pid) {
+		return pid;
+	}
 }

@@ -1,0 +1,29 @@
+package Traductor;
+
+
+import java.net.*;
+import java.io.*;
+
+public class Traductor {
+	private static String obtenerHTML(URL direccion) throws IOException {
+		
+		BufferedReader in = new BufferedReader(new InputStreamReader(direccion.openStream()));
+	
+		return html
+	}
+	
+	public static void main(String[] args) throws IOException {
+		String palabra="";
+		
+		URL direccion;
+		try {
+			direccion = new URL ("https://www.ingles.com/traductor/perro");
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		String html =obtenerHTML(direccion);
+	}
+
+}
