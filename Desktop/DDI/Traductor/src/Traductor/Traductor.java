@@ -8,7 +8,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
-
 public class Traductor {
 	private static String obtenerHTML(URL direccion) throws IOException {
 		String inputline, codigo = "";
@@ -30,22 +29,16 @@ public class Traductor {
 	private static String traducirJsoup(String palabra) {
 		String cadena = null;
 		Document document = null;
-		String webpage = "https://www.ingles.com/traductor/perro" + palabra;
+		String webpage = "https://www.ingles.com/traductor/" + palabra;
 		try {
-			document=Jsoup.connect(webpage).get();
+			document = Jsoup.connect(webpage).get();
 		} catch (IOException e) {
 			e.printStackTrace();
-			
-			
-			
-		cadena=document.getElementById("quickdef1-es").getElementsByClass("MhZ0VHvJ").html().toUpperCase();
-			
+
+			cadena = document.getElementById("quickdef1-es").getElementsByClass("MhZ0VHvJ").html().toUpperCase();
+
 		}
-		
-		
-		
-		
-		
+
 		return webpage;
 
 	}
@@ -61,7 +54,7 @@ public class Traductor {
 
 		System.out.println(traducirJsoup("perro"));
 
-		System.out.println(html);
+		// System.out.println(html);
 	}
 
 }
