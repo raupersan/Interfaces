@@ -1,0 +1,72 @@
+package Ventanas;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.CardLayout;
+import javax.swing.JButton;
+
+public class paneles2 {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					paneles2 window = new paneles2();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public paneles2() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(new CardLayout(0, 0));
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setBackground(Color.GREEN);
+		frame.getContentPane().add(panel_3, "name_13672034856600");
+		
+		JButton btnNewButton = new JButton("New button");
+		panel_3.add(btnNewButton);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(Color.MAGENTA);
+		frame.getContentPane().add(panel_1, "name_13672045666200");
+		
+		JButton btnNewButton_1 = new JButton("New button");
+		panel_1.add(btnNewButton_1);
+		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(Color.PINK);
+		frame.getContentPane().add(panel_2, "name_13672055234600");
+		
+		JButton btnNewButton_2 = new JButton("New button");
+		panel_2.add(btnNewButton_2);
+		
+		JPanel panel_4 = new JPanel();
+		frame.getContentPane().add(panel_4, "name_13892923999700");
+	}
+}
