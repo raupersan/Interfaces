@@ -1,0 +1,19 @@
+package repasoExamen;
+
+import java.io.*;
+public class Main_01 {
+
+	private static void leerVentas(String nombreFichero, String [][] datos) {
+		String linea;
+		try(BufferedReader bf = new BufferedReader (new FileReader(nombreFichero))) {
+			while((linea=bf.readLine())!=null) {}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public static void main(String[] args) {
+		String [][] datos = new String [100][2]; //Max 100 productos
+		String nombreFichero="ventasProductos.txt";
+	}
+
+}

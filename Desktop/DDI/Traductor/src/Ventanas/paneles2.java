@@ -120,5 +120,6 @@ public class paneles2 {
 				panel_4.setVisible(false);
 			}
 		});
+		
 	}
 }

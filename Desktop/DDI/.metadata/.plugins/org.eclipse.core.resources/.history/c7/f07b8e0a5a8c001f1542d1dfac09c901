@@ -1,0 +1,29 @@
+package repasoExamen;
+
+import java.io.*;
+public class Main_01 {
+
+	private static void leerVentas(String nombreFichero, String [][] datos) {
+		String linea;
+		try(BufferedReader bf = new BufferedReader (new FileReader(nombreFichero))) {
+			while((linea=bf.readLine())!=null) {
+				String[]partesLinea=linea.split(",");
+				//partesLinea[0] tiene el nombre del producto
+				//partesLinea[1] tiene la cantidad en forma de String
+				
+				int indice =0;
+				boolean encontrado = false;
+				while(indice<datos.length) {
+					
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public static void main(String[] args) {
+		String [][] datos = new String [100][2]; //Max 100 productos
+		String nombreFichero="ventasProductos.txt";
+	}
+
+}
