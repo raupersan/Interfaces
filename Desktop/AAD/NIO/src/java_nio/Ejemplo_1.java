@@ -13,7 +13,7 @@ public class Ejemplo_1 {
 			System.out.println("Directorio creado en: " + dir.toAbsolutePath() + " y mi directorio padre es: " + dir.getParent()); 
 		}
 	}
-	private static void leerArchivo() {
+	private static void leerArchivo(Path fichero) {
 		
 	}
 	private static void escribirArchivo(Path fichero, String texto) throws IOException {
